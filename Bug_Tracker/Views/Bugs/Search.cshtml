@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Bugs>
+
+@using (Html.BeginForm("Search", "Bugs", FormMethod.Get))
+{
+    <p>
+        Find by Project: @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
+
+<h2>Bugs</h2>
+<div style="display: block">
+    <a href="/Bugs/InsertBug/">Create a New Bug</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Project</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Date</th>
+        @*<th>Image</th>*@
+    </tr>
+
+    @foreach (var bugs in Model)
+    {
+        <tr>
+            <td><a href=/Bugs/ViewBug/@bugs.ID>@bugs.ID</a></td>
+            <td>@bugs.Project</td>
+            <td>@bugs.Description</td>
+            <td>@bugs.Type</td>
+            <td>@bugs.Status</td>
+            <td>@bugs.Date</td>
+            @*<td><img src="@bugs.Image" width="200"/></td>*@
+        </tr>
+
+    }
+</table>

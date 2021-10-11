@@ -1,0 +1,43 @@
+﻿@model Bugs
+
+<h3>@Model.ID Information</h3>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Project</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Assigned User</th>
+
+        @*<th>Image</th>*@
+    </tr>
+    <tr>
+        <td>@Model.ID</td>
+        <td>@Model.Project</td>
+        <td>@Model.Description</td>
+        <td>@Model.Type</td>
+        <td>@Model.Status</td>
+        <td>@Model.Date</td>
+        <td>@Model.AssignedUser</td>
+
+        @*<td><img src="@Model.Image" width="200" /></td>*@
+
+
+
+    </tr>
+
+</table>
+<div style="display: block">
+    <a href="/Bugs/UpdateBug/@Model.ID">Update this Bug</a>
+</div>
+<div style="display: block">
+    @using (Html.BeginForm("DeleteBug", "Bugs", "Post"))
+    {
+        <input type="hidden" asp-for="ID" value="@Model.ID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this Bug" />
+    }
+</div>
+

@@ -1,0 +1,29 @@
+﻿@model Bugs
+<h2>Create a New Bug</h2>
+@using (Html.BeginForm("InsertBugToDatabase", "Bugs", "Post"))
+{
+    <label asp-for="ID" class="control-label">ID</label>
+    <input type="number" step="1" name="ID" class="form-control" value="" />
+    <label asp-for="Project" class="control-label">Project</label>
+    <input type="text" name="Project" class="form-control" value="" />
+    <label asp-for="Description" class="control-label">Description</label>
+    <input type="text" name="Description" class="form-control" />
+    <label asp-for="Type" class="control-label">Type</label>
+    <input type="text" name="Type" class="form-control" />
+    <label asp-for="Status" class="control-label">Status</label>
+    <input type="text" name="Status" class="form-control" />
+    <label asp-for="Date" class="control-label">Date</label>
+    <input type="number" name="Date" class="form-control" />
+    <label asp-for="AssignedUser" class="control-label">Assigned User</label>
+    <input type="text" name="AssignedUser" class="form-control" />
+    @*<div>
+            <form method="post" enctype="multipart/form-data" asp-controller="Bug" asp-action="UploadButtonClick">
+                <input asp-for="ID" type="hidden" />
+                <input asp-for="Image" class="form-control" name="files" type="file" />
+                <p>Upload Photo</p>
+                <input class="btn btn-success" type="submit" value="Upload" />
+            </form>
+        </div>*@
+
+    <input type="submit" value="Create Bug" class="btn btn-primary" />
+}
