@@ -1,20 +1,9 @@
 ﻿@model IEnumerable<Bugs>
-
-@using (Html.BeginForm("Search","Bugs", FormMethod.Get) )
-            {
-                <p>
-                    Find by Project: @Html.TextBox("searchString")
-                    <input type ="submit" value="Search"/>
-                </p>
-            }
+@using (Html.BeginForm("Assignedbugs", "Bugs", "Post"))
+{
 
 
-
-<h2>Bugs</h2>
-<div style="display: block">
-    <a href="/Bugs/InsertBug/">Create a New Bug</a>
-</div>
-
+    <h2>Bugs</h2>
 <table class="table">
     <tr>
         <th>ID</th>
@@ -36,10 +25,11 @@
             <td>@bugs.Type</td>
             <td>@bugs.Status</td>
             <td>@bugs.Date</td>
-            <td>@bugs.AssignedUserID</td>            
+            <td>@bugs.AssignedUserID</td>
 
             @*<td><img src="@bugs.Image" width="200"/></td>*@
         </tr>
 
     }
 </table>
+}

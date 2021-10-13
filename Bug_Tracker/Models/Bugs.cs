@@ -17,7 +17,7 @@ namespace Bug_Tracker.Models
         public string Status { get; set; }
 
         public int Date { get; set; }
-        public string AssignedUser { get; set; }
+        public int AssignedUserID { get; set; }
         //public string Image { get; set; }
 
 

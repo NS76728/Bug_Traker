@@ -4,11 +4,13 @@
 
 <table class="table">
     <tr>
+        <th>ID</th>
         <th>User Name</th>
         <th>Password</th>
 
     </tr>
     <tr>
+        <td>@Model.ID</td>
         <td>@Model.UserName</td>
         <td>@Model.Password</td>
 
@@ -16,8 +18,16 @@
     </tr>
 
 </table>
+
 <div style="display: block">
-    <a href="/Users/UpdateUser/@Model.UserName">Update this user</a>
+    <a href="/Users/Assignedbugs/@Model.ID">Assigned Bugs</a>
+</div>
+
+
+
+
+<div style="display: block">
+    <a href="/Users/Updateuser/@Model.ID">Update this user</a>
 </div>
 <div style="display: block">
     @using (Html.BeginForm("DeleteUser", "Users", "Post"))

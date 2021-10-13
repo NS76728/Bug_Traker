@@ -32,7 +32,7 @@ namespace Bug_Tracker
                 conn.Open();
                 return conn;
             });
-
+            services.AddTransient<IUsersRepo, UsersRepo>();
             services.AddTransient<IBugsRepo, BugsRepo >();
             services.AddControllersWithViews();
 

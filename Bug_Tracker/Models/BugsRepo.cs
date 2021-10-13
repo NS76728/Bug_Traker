@@ -33,8 +33,8 @@ namespace Bug_Tracker.Models
 
         public void InsertBug(Bugs bugsToInsert)
         {
-            _conn.Execute("INSERT INTO bugs (ID, Project, Description, Type, Status, Date, Assigneduser) VALUES (@id, @project, @description, @type, @status, @date, @assigneduser);",
-                new { id = bugsToInsert.ID, project = bugsToInsert.Project, description = bugsToInsert.Description, type = bugsToInsert.Type, status = bugsToInsert.Status, date = bugsToInsert.Date, assigneduser = bugsToInsert.AssignedUser });
+            _conn.Execute("INSERT INTO bugs (ID, Project, Description, Type, Status, Date, Assigneduserid) VALUES (@id, @project, @description, @type, @status, @date, @assigneduserid);",
+                new { id = bugsToInsert.ID, project = bugsToInsert.Project, description = bugsToInsert.Description, type = bugsToInsert.Type, status = bugsToInsert.Status, date = bugsToInsert.Date, assigneduserid = bugsToInsert.AssignedUserID });
         }
 
        
@@ -42,7 +42,7 @@ namespace Bug_Tracker.Models
         public void UpdateBug(Bugs bugs)
         {
             _conn.Execute("UPDATE bugs SET ID = @id, Project = @project, Description =@description, Type=@type, Status=@status, Date=@date, Assigneduser=@assigneduser WHERE ID = @id",
-                 new { id=bugs.ID, project=bugs.Project, description =bugs.Description, type=bugs.Type, status=bugs.Status, date=bugs.Date, assigneduser = bugs.AssignedUser });
+                 new { id=bugs.ID, project=bugs.Project, description =bugs.Description, type=bugs.Type, status=bugs.Status, date=bugs.Date, assigneduser = bugs.AssignedUserID });
         }
 
 

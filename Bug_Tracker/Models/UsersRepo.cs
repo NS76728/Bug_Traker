@@ -14,30 +14,45 @@ namespace Bug_Tracker.Models
         {
             _conn = conn;
         }
+
         public void Deleteuser(Users users)
         {
-            _conn.Execute("DELETE FROM users username like @username; ",
+            _conn.Execute("DELETE FROM users where username like @username ;",
                    new { username = users.UserName });
         }
+        
+        public Users GetUser1(int ID)
+        {
+            return _conn.QuerySingle<Users>("SELECT * FROM users WHERE ID = @id;",
+                   new { id = ID});
+        }
 
-        public Users GetUsers(string UserName)
+        public Users GetUsers(int ID, string Username,string Password)
         {
             
-                return _conn.QuerySingle<Users>("SELECT * FROM users WHERE username like @username;",
-                   new { username = UserName });
+                return _conn.QuerySingle<Users>("SELECT * FROM users WHERE ID = @id && username = @username && password = @password;",
+                   new {id=ID, username=Username, password=Password});
             
         }
 
         public void InsertUser(Users users)
         {
-            _conn.Execute("Insert Into users(username, password) Values(@username,@passwrod);",
-                new { username = users.UserName, password = users.Password });
+            _conn.Execute("Insert Into users(username, password,id) Values(@username,@password,@id);",
+                new { username = users.UserName, password = users.Password, id = users.ID });
         }
 
-        public void UpdateUser(Users users)
+        public void Updateuser(Users users)
         {
-            _conn.Execute("UPDATE users SET username = @username, password = @password",
-                 new { username = users.UserName, password = users.Password });
+            _conn.Execute("UPDATE users SET username = @username, password = @password where id = @id",
+                 new { username = users.UserName, password = users.Password, id = users.ID });
         }
+
+        public IEnumerable<Bugs> Assignedbugs(int ID)
+        {
+            return _conn.Query<Bugs>("SELECT * FROM Bugs WHERE assigneduserid = @id;",
+                 new { id=ID});
+        }
+
+
     }
 }

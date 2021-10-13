@@ -23,20 +23,24 @@
         <th>Type</th>
         <th>Status</th>
         <th>Date</th>
+        <th>Assigned User ID</th>
+
         @*<th>Image</th>*@
     </tr>
 
     @foreach (var bugs in Model)
     {
-        <tr>
-            <td><a href=/Bugs/ViewBug/@bugs.ID>@bugs.ID</a></td>
-            <td>@bugs.Project</td>
-            <td>@bugs.Description</td>
-            <td>@bugs.Type</td>
-            <td>@bugs.Status</td>
-            <td>@bugs.Date</td>
-            @*<td><img src="@bugs.Image" width="200"/></td>*@
-        </tr>
+<tr>
+    <td><a href=/Bugs/ViewBug/@bugs.ID>@bugs.ID</a></td>
+    <td>@bugs.Project</td>
+    <td>@bugs.Description</td>
+    <td>@bugs.Type</td>
+    <td>@bugs.Status</td>
+    <td>@bugs.Date</td>
+    <td>@bugs.AssignedUserID</td>
+
+    @*<td><img src="@bugs.Image" width="200"/></td>*@
+</tr>
 
     }
 </table>
