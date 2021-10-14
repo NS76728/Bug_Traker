@@ -50,6 +50,10 @@ namespace Bug_Tracker.Controllers
         }
         public IActionResult InsertBugToDatabase(Bugs bugToInsert)
         {
+            if (bugToInsert.ID == 0 ||  bugToInsert.Project ==null || bugToInsert.Description == null || bugToInsert.Type == null || bugToInsert.Status == null || bugToInsert.Date == 0 || bugToInsert.AssignedUserID == 0) 
+            {
+                return RedirectToAction("InsertBug");
+            }
             repo.InsertBug(bugToInsert);
 
             return RedirectToAction("Index");

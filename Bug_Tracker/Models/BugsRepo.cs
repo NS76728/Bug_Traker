@@ -41,7 +41,7 @@ namespace Bug_Tracker.Models
 
         public void UpdateBug(Bugs bugs)
         {
-            _conn.Execute("UPDATE bugs SET ID = @id, Project = @project, Description =@description, Type=@type, Status=@status, Date=@date, Assigneduser=@assigneduser WHERE ID = @id",
+            _conn.Execute("UPDATE bugs SET ID = @id, Project = @project, Description =@description, Type=@type, Status=@status, Date=@date, AssigneduserID=@assigneduser WHERE ID = @id",
                  new { id=bugs.ID, project=bugs.Project, description =bugs.Description, type=bugs.Type, status=bugs.Status, date=bugs.Date, assigneduser = bugs.AssignedUserID });
         }
 

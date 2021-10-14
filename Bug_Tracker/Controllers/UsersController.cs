@@ -19,7 +19,7 @@ namespace Bug_Tracker.Controllers
         
         public IActionResult ViewUser(int id,string username,string password)
         {
-            if(id ==0 && username==null && password==null)
+            if(id ==0 || username==null || password==null)
             {
                 return RedirectToAction("LoginScreen");
             }
@@ -43,7 +43,7 @@ namespace Bug_Tracker.Controllers
         
         public IActionResult InsertUserToDatabase(Users users )
         {
-            if (users.ID == 0 && users.UserName == null && users.Password == null)
+            if (users.ID == 0 || users.UserName == null || users.Password == null)
             {
                 return RedirectToAction("CreateUser");
             }
